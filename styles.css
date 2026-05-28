@@ -507,14 +507,8 @@ ul { list-style: none; }
     margin-bottom: 12px;
 }
 
-.service-featured-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-}
-
 .service-badge {
+    display: inline-block;
     padding: 4px 14px;
     background: #ffffff;
     color: #000000;
@@ -524,6 +518,7 @@ ul { list-style: none; }
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    margin-bottom: 12px;
 }
 
 .service-card h3 {
