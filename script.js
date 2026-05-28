@@ -673,14 +673,7 @@ async function submitBooking() {
 }
 
 // Close modal on overlay click
-document.getElementById('bookingModal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) closeBookingModal();
-});
-
-// Close modal on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeBookingModal();
-});
+// Modal only closes via X button (closeBookingModal)
 
 // ===== Smooth Scroll =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
