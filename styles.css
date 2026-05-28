@@ -6,10 +6,10 @@
 }
 
 :root {
-    --primary: #d4a843;
-    --primary-dark: #b8922e;
-    --primary-light: #e8c36a;
-    --accent: #f0d080;
+    --primary: #4a90d9;
+    --primary-dark: #3672b9;
+    --primary-light: #6ba8ed;
+    --accent: #8cc2f5;
     --dark: #0a0a0a;
     --dark-2: #111111;
     --dark-3: #1a1a1a;
@@ -69,12 +69,12 @@ ul { list-style: none; }
 .btn-primary {
     background: var(--gradient);
     color: var(--dark);
-    box-shadow: 0 4px 20px rgba(212, 168, 67, 0.3);
+    box-shadow: 0 4px 20px rgba(74, 144, 217, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(212, 168, 67, 0.5);
+    box-shadow: 0 6px 25px rgba(74, 144, 217, 0.5);
 }
 
 .btn-outline {
@@ -201,8 +201,8 @@ ul { list-style: none; }
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(212, 168, 67, 0.1);
-    border: 1px solid rgba(212, 168, 67, 0.3);
+    background: rgba(74, 144, 217, 0.1);
+    border: 1px solid rgba(74, 144, 217, 0.3);
     color: var(--primary);
     font-weight: 800;
     font-size: 0.7rem;
@@ -213,7 +213,7 @@ ul { list-style: none; }
 }
 
 .lang-toggle:hover {
-    background: rgba(212, 168, 67, 0.2);
+    background: rgba(74, 144, 217, 0.2);
     border-color: var(--primary);
 }
 
@@ -236,7 +236,7 @@ ul { list-style: none; }
 
 .nav-cta:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(212, 168, 67, 0.4);
+    box-shadow: 0 4px 15px rgba(74, 144, 217, 0.4);
 }
 
 .nav-right {
@@ -265,7 +265,7 @@ ul { list-style: none; }
 .lang-toggle:hover {
     border-color: var(--primary);
     color: var(--primary);
-    background: rgba(212, 168, 67, 0.08);
+    background: rgba(74, 144, 217, 0.08);
 }
 
 .hamburger {
@@ -303,7 +303,7 @@ ul { list-style: none; }
 .hero-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, #0a0a0a 0%, #1a1510 40%, #0a0a0a 100%);
+    background: linear-gradient(160deg, #0a0a0a 0%, #0f1520 40%, #0a0a0a 100%);
 }
 
 .hero-pattern {
@@ -322,8 +322,8 @@ ul { list-style: none; }
     display: inline-flex;
     align-items: center;
     padding: 8px 20px;
-    background: rgba(212, 168, 67, 0.1);
-    border: 1px solid rgba(212, 168, 67, 0.2);
+    background: rgba(74, 144, 217, 0.1);
+    border: 1px solid rgba(74, 144, 217, 0.2);
     border-radius: 50px;
     color: var(--primary);
     font-size: 0.85rem;
@@ -427,7 +427,7 @@ ul { list-style: none; }
 .section-tag {
     display: inline-block;
     padding: 6px 16px;
-    background: rgba(212, 168, 67, 0.1);
+    background: rgba(74, 144, 217, 0.1);
     color: var(--primary);
     border-radius: 50px;
     font-size: 0.8rem;
@@ -461,73 +461,63 @@ ul { list-style: none; }
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
 }
 
 .service-card {
     background: var(--dark-3);
-    padding: 36px 28px 28px;
+    padding: 32px 24px 24px;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.06);
     text-align: center;
-    position: relative;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
 }
 
 .service-card:hover {
-    border-color: rgba(212, 168, 67, 0.15);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border-color: rgba(74, 144, 217, 0.2);
 }
 
 .service-card.featured {
-    border-color: rgba(212, 168, 67, 0.3);
-    background: linear-gradient(180deg, #1c1710 0%, var(--dark-3) 100%);
-    box-shadow: 0 0 40px rgba(212, 168, 67, 0.06);
+    border-color: var(--primary);
 }
 
 .service-card.featured:hover {
-    border-color: rgba(212, 168, 67, 0.5);
-    box-shadow: 0 12px 48px rgba(212, 168, 67, 0.1);
+    border-color: var(--primary-light);
 }
 
 .service-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.2), transparent);
+    height: 4px;
+    background: rgba(74, 144, 217, 0.15);
+    border-radius: 2px;
+    margin-bottom: 20px;
 }
 
 .service-card.featured .service-accent {
-    background: var(--gradient);
-    height: 4px;
+    background: var(--primary);
 }
 
 .service-num {
     display: block;
     font-size: 0.75rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.2);
     letter-spacing: 0.1em;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .service-featured-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .service-badge {
     padding: 4px 14px;
-    background: var(--gradient);
-    color: var(--dark);
+    background: var(--primary);
+    color: var(--white);
     border-radius: 50px;
     font-size: 0.68rem;
     font-weight: 800;
@@ -536,18 +526,15 @@ ul { list-style: none; }
 }
 
 .service-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .service-price {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     font-weight: 900;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary);
     margin-bottom: 16px;
     line-height: 1;
 }
@@ -555,8 +542,8 @@ ul { list-style: none; }
 .service-card > p {
     color: var(--gray);
     font-size: 0.88rem;
-    line-height: 1.65;
-    margin-bottom: 20px;
+    line-height: 1.6;
+    margin-bottom: 16px;
 }
 
 .service-features {
@@ -564,14 +551,13 @@ ul { list-style: none; }
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     flex-grow: 1;
 }
 
 .service-features li {
-    padding: 5px 14px;
+    padding: 5px 12px;
     background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 50px;
     font-size: 0.76rem;
     font-weight: 500;
@@ -600,7 +586,7 @@ ul { list-style: none; }
 
 .about-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(212, 168, 67, 0.15);
+    border-color: rgba(74, 144, 217, 0.15);
 }
 
 .about-card-icon {
@@ -609,7 +595,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(212, 168, 67, 0.1);
+    background: rgba(74, 144, 217, 0.1);
     color: var(--primary);
     border-radius: 14px;
     margin-bottom: 20px;
@@ -672,7 +658,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(212, 168, 67, 0.1);
+    background: rgba(74, 144, 217, 0.1);
     color: var(--primary);
     border-radius: 12px;
 }
@@ -694,10 +680,10 @@ ul { list-style: none; }
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(160deg, #1a1510 0%, #111 100%);
+    background: linear-gradient(160deg, #0f1520 0%, #111 100%);
     border-radius: var(--radius-lg);
     padding: 48px;
-    border: 1px solid rgba(212, 168, 67, 0.15);
+    border: 1px solid rgba(74, 144, 217, 0.15);
 }
 
 .contact-cta h3 {
@@ -752,7 +738,7 @@ ul { list-style: none; }
 
 .review-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(212, 168, 67, 0.15);
+    border-color: rgba(74, 144, 217, 0.15);
 }
 
 .review-stars {
@@ -804,7 +790,7 @@ ul { list-style: none; }
 .review-service {
     display: inline-block;
     padding: 4px 12px;
-    background: rgba(212, 168, 67, 0.08);
+    background: rgba(74, 144, 217, 0.08);
     color: var(--primary);
     border-radius: 50px;
     font-size: 0.75rem;
@@ -891,20 +877,35 @@ ul { list-style: none; }
 
 .calendar-day:hover:not(.disabled):not(.empty) {
     border-color: var(--primary);
-    background: rgba(212, 168, 67, 0.08);
+    background: rgba(74, 144, 217, 0.08);
 }
 
 .calendar-day.today {
-    border-color: rgba(212, 168, 67, 0.3);
     color: var(--primary);
-    font-weight: 700;
+    position: relative;
+}
+
+.calendar-day.today::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--primary);
 }
 
 .calendar-day.selected {
-    background: var(--gradient);
-    color: var(--dark);
+    background: var(--primary);
+    color: var(--white);
     font-weight: 700;
-    border-color: transparent;
+    border-color: var(--primary);
+}
+
+.calendar-day.selected.today::after {
+    display: none;
 }
 
 .calendar-day.disabled {
@@ -959,7 +960,7 @@ ul { list-style: none; }
 
 .bike-search input[type="text"]:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.1);
+    box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.1);
 }
 
 .bike-search input[type="text"]::placeholder {
@@ -1012,12 +1013,12 @@ ul { list-style: none; }
 }
 
 .bike-option:hover {
-    background: rgba(212, 168, 67, 0.1);
+    background: rgba(74, 144, 217, 0.1);
     color: var(--white);
 }
 
 .bike-option.selected {
-    background: rgba(212, 168, 67, 0.15);
+    background: rgba(74, 144, 217, 0.15);
     color: var(--primary);
 }
 
@@ -1156,7 +1157,7 @@ ul { list-style: none; }
 }
 
 .service-option:hover {
-    border-color: rgba(212, 168, 67, 0.2);
+    border-color: rgba(74, 144, 217, 0.2);
 }
 
 .service-option input[type="radio"] {
@@ -1171,7 +1172,7 @@ ul { list-style: none; }
 
 .service-option:has(input:checked) {
     border-color: var(--primary);
-    background: rgba(212, 168, 67, 0.05);
+    background: rgba(74, 144, 217, 0.05);
 }
 
 .service-option-content {
@@ -1220,7 +1221,7 @@ ul { list-style: none; }
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.1);
+    box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.1);
 }
 
 .form-group textarea {
@@ -1249,7 +1250,7 @@ ul { list-style: none; }
 }
 
 .time-slot:hover {
-    border-color: rgba(212, 168, 67, 0.2);
+    border-color: rgba(74, 144, 217, 0.2);
 }
 
 .time-slot input[type="radio"] {
@@ -1257,7 +1258,7 @@ ul { list-style: none; }
 }
 
 .time-slot:has(input:checked) {
-    background: rgba(212, 168, 67, 0.1);
+    background: rgba(74, 144, 217, 0.1);
     border-color: var(--primary);
     color: var(--primary);
 }
@@ -1394,20 +1395,20 @@ ul { list-style: none; }
 }
 
 .calendar-day:hover:not(.disabled):not(.empty) {
-    border-color: rgba(212, 168, 67, 0.3);
-    background: rgba(212, 168, 67, 0.05);
+    border-color: rgba(74, 144, 217, 0.3);
+    background: rgba(74, 144, 217, 0.05);
 }
 
 .calendar-day.selected {
-    background: var(--gradient);
-    color: var(--dark);
+    background: var(--primary);
+    color: var(--white);
     font-weight: 700;
     border-color: var(--primary);
 }
 
 .calendar-day.today {
-    border-color: rgba(212, 168, 67, 0.3);
     color: var(--primary);
+    position: relative;
 }
 
 .calendar-day.disabled {
@@ -1441,7 +1442,7 @@ ul { list-style: none; }
 
 .review-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(212, 168, 67, 0.15);
+    border-color: rgba(74, 144, 217, 0.15);
 }
 
 .review-stars {
@@ -1539,15 +1540,23 @@ ul { list-style: none; }
         right: 0;
         background: var(--dark-2);
         flex-direction: column;
-        padding: 20px;
+        padding: 12px 20px;
         border-bottom: 1px solid rgba(255,255,255,0.05);
+        list-style: none;
+        margin: 0;
     }
 
     .nav-links.open { display: flex; }
 
+    .nav-links li {
+        width: 100%;
+    }
+
     .nav-link {
-        padding: 12px 20px;
+        display: block;
+        padding: 12px 0;
         color: var(--white);
+        text-align: left;
     }
 
     .nav-cta { display: none; }

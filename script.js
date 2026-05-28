@@ -57,172 +57,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-number[data-target]').forEach(c => counterObserver.observe(c));
 
 // ===== Bike Search =====
-const bikeData = [
-    // Yamaha
-    { brand: 'Yamaha', model: 'Y15ZR' }, { brand: 'Yamaha', model: 'Y16RC' }, { brand: 'Yamaha', model: 'LC135' },
-    { brand: 'Yamaha', model: 'Lagenda 115Z' }, { brand: 'Yamaha', model: 'Lagenda 115ZR' }, { brand: 'Yamaha', model: 'Lagenda 110' },
-    { brand: 'Yamaha', model: 'Jupiter Z1' }, { brand: 'Yamaha', model: 'Sniper 150' }, { brand: 'Yamaha', model: 'Exciter 150' },
-    { brand: 'Yamaha', model: 'NVX' }, { brand: 'Yamaha', model: 'NMAX' }, { brand: 'Yamaha', model: 'XMAX' },
-    { brand: 'Yamaha', model: 'Aerox 155' }, { brand: 'Yamaha', model: 'Mio M3' }, { brand: 'Yamaha', model: 'Mio Z' },
-    { brand: 'Yamaha', model: 'Mio Gravis' }, { brand: 'Yamaha', model: 'Gear 125' }, { brand: 'Yamaha', model: 'Lexi' },
-    { brand: 'Yamaha', model: 'QBIX' }, { brand: 'Yamaha', model: 'MT-15' }, { brand: 'Yamaha', model: 'MT-25' },
-    { brand: 'Yamaha', model: 'MT-03' }, { brand: 'Yamaha', model: 'MT-07' }, { brand: 'Yamaha', model: 'MT-09' },
-    { brand: 'Yamaha', model: 'MT-10' }, { brand: 'Yamaha', model: 'R15' }, { brand: 'Yamaha', model: 'R25' },
-    { brand: 'Yamaha', model: 'YZF-R3' }, { brand: 'Yamaha', model: 'YZF-R1' }, { brand: 'Yamaha', model: 'YZF-R6' },
-    { brand: 'Yamaha', model: 'FZ150i' }, { brand: 'Yamaha', model: 'FZ-S Fi' }, { brand: 'Yamaha', model: 'XSR155' },
-    { brand: 'Yamaha', model: 'XSR700' }, { brand: 'Yamaha', model: 'XSR900' }, { brand: 'Yamaha', model: 'WR155R' },
-    { brand: 'Yamaha', model: 'XTZ125' }, { brand: 'Yamaha', model: 'Tenere 700' }, { brand: 'Yamaha', model: 'Tracer 700' },
-    { brand: 'Yamaha', model: 'Tracer 900' }, { brand: 'Yamaha', model: 'Tracer 9 GT' },
-    // Honda
-    { brand: 'Honda', model: 'EX5' }, { brand: 'Honda', model: 'Wave 110' }, { brand: 'Honda', model: 'Wave 125' },
-    { brand: 'Honda', model: 'Wave Alpha' }, { brand: 'Honda', model: 'Dash 125' }, { brand: 'Honda', model: 'RS150R' },
-    { brand: 'Honda', model: 'RS-X' }, { brand: 'Honda', model: 'CBR150R' }, { brand: 'Honda', model: 'CBR250RR' },
-    { brand: 'Honda', model: 'CBR500R' }, { brand: 'Honda', model: 'CBR600RR' }, { brand: 'Honda', model: 'CBR650R' },
-    { brand: 'Honda', model: 'CBR1000RR' }, { brand: 'Honda', model: 'CB150R' }, { brand: 'Honda', model: 'CB250R' },
-    { brand: 'Honda', model: 'CB500F' }, { brand: 'Honda', model: 'CB500X' }, { brand: 'Honda', model: 'CB650R' },
-    { brand: 'Honda', model: 'CB1000R' }, { brand: 'Honda', model: 'PCX160' }, { brand: 'Honda', model: 'Vario 125' },
-    { brand: 'Honda', model: 'Vario 160' }, { brand: 'Honda', model: 'ADV150' }, { brand: 'Honda', model: 'ADV160' },
-    { brand: 'Honda', model: 'X-ADV' }, { brand: 'Honda', model: 'BeAT' }, { brand: 'Honda', model: 'Scoopy' },
-    { brand: 'Honda', model: 'Genio' }, { brand: 'Honda', model: 'Click 125i' }, { brand: 'Honda', model: 'Click 160' },
-    { brand: 'Honda', model: 'Forza' }, { brand: 'Honda', model: 'Forza 350' }, { brand: 'Honda', model: 'Rebel 500' },
-    { brand: 'Honda', model: 'CMX500' }, { brand: 'Honda', model: 'Africa Twin' }, { brand: 'Honda', model: 'CRF1100L' },
-    { brand: 'Honda', model: 'CRF250L' }, { brand: 'Honda', model: 'CRF250Rally' }, { brand: 'Honda', model: 'CRF300L' },
-    { brand: 'Honda', model: 'Gold Wing' }, { brand: 'Honda', model: 'ST125 (Dax)' }, { brand: 'Honda', model: 'MSX125 (Grom)' },
-    { brand: 'Honda', model: 'Monkey' }, { brand: 'Honda', model: 'Super Cub C125' }, { brand: 'Honda', model: 'NT1100' },
-    // Kawasaki
-    { brand: 'Kawasaki', model: 'Ninja 250' }, { brand: 'Kawasaki', model: 'Ninja 400' }, { brand: 'Kawasaki', model: 'Ninja 650' },
-    { brand: 'Kawasaki', model: 'Ninja ZX-6R' }, { brand: 'Kawasaki', model: 'Ninja ZX-10R' }, { brand: 'Kawasaki', model: 'Ninja ZX-14R' },
-    { brand: 'Kawasaki', model: 'Ninja ZX-25R' }, { brand: 'Kawasaki', model: 'Ninja H2' }, { brand: 'Kawasaki', model: 'Z250' },
-    { brand: 'Kawasaki', model: 'Z400' }, { brand: 'Kawasaki', model: 'Z650' }, { brand: 'Kawasaki', model: 'Z650RS' },
-    { brand: 'Kawasaki', model: 'Z900' }, { brand: 'Kawasaki', model: 'Z900RS' }, { brand: 'Kawasaki', model: 'Z1000' },
-    { brand: 'Kawasaki', model: 'Z H2' }, { brand: 'Kawasaki', model: 'Versys-X 300' }, { brand: 'Kawasaki', model: 'Versys 650' },
-    { brand: 'Kawasaki', model: 'Versys 1000' }, { brand: 'Kawasaki', model: 'Vulcan S' }, { brand: 'Kawasaki', model: 'Vulcan 650' },
-    { brand: 'Kawasaki', model: 'W175' }, { brand: 'Kawasaki', model: 'W800' }, { brand: 'Kawasaki', model: 'KLX150' },
-    { brand: 'Kawasaki', model: 'KLX230' }, { brand: 'Kawasaki', model: 'KLX250' }, { brand: 'Kawasaki', model: 'KX250' },
-    { brand: 'Kawasaki', model: 'KX450' }, { brand: 'Kawasaki', model: 'D-Tracker' }, { brand: 'Kawasaki', model: 'D-Tracker 150' },
-    { brand: 'Kawasaki', model: 'KLR650' },
-    // Suzuki
-    { brand: 'Suzuki', model: 'Raider R150' }, { brand: 'Suzuki', model: 'Raider Fi' }, { brand: 'Suzuki', model: 'Satria F150' },
-    { brand: 'Suzuki', model: 'GSX-R150' }, { brand: 'Suzuki', model: 'GSX-S150' }, { brand: 'Suzuki', model: 'GSX-R250' },
-    { brand: 'Suzuki', model: 'GSX-250R' }, { brand: 'Suzuki', model: 'GSX-R1000' }, { brand: 'Suzuki', model: 'GSX-S750' },
-    { brand: 'Suzuki', model: 'GSX-S1000' }, { brand: 'Suzuki', model: 'SV650' }, { brand: 'Suzuki', model: 'V-Strom 250' },
-    { brand: 'Suzuki', model: 'V-Strom 650' }, { brand: 'Suzuki', model: 'V-Strom 1050' }, { brand: 'Suzuki', model: 'Hayabusa' },
-    { brand: 'Suzuki', model: 'Intruder 150' }, { brand: 'Suzuki', model: 'Address' }, { brand: 'Suzuki', model: 'Nex' },
-    { brand: 'Suzuki', model: 'Avenis' }, { brand: 'Suzuki', model: 'Burgman Street' }, { brand: 'Suzuki', model: 'RM-Z250' },
-    { brand: 'Suzuki', model: 'DR-Z400' }, { brand: 'Suzuki', model: 'Katana' },
-    // Ducati
-    { brand: 'Ducati', model: 'Panigale V2' }, { brand: 'Ducati', model: 'Panigale V4' },
-    { brand: 'Ducati', model: 'Streetfighter V2' }, { brand: 'Ducati', model: 'Streetfighter V4' },
-    { brand: 'Ducati', model: 'Monster' }, { brand: 'Ducati', model: 'Monster 821' }, { brand: 'Ducati', model: 'Monster 937' },
-    { brand: 'Ducati', model: 'Scrambler Icon' }, { brand: 'Ducati', model: 'Scrambler Desert Sled' },
-    { brand: 'Ducati', model: 'Scrambler Nightshift' }, { brand: 'Ducati', model: 'Scrambler 800' },
-    { brand: 'Ducati', model: 'Multistrada V2' }, { brand: 'Ducati', model: 'Multistrada V4' },
-    { brand: 'Ducati', model: 'Multistrada 950' }, { brand: 'Ducati', model: 'Diavel' }, { brand: 'Ducati', model: 'XDiavel' },
-    { brand: 'Ducati', model: 'Hypermotard 950' }, { brand: 'Ducati', model: 'DesertX' }, { brand: 'Ducati', model: 'SuperSport 950' },
-    // BMW
-    { brand: 'BMW', model: 'G 310 R' }, { brand: 'BMW', model: 'G 310 GS' }, { brand: 'BMW', model: 'G 310 RR' },
-    { brand: 'BMW', model: 'F 900 R' }, { brand: 'BMW', model: 'F 900 XR' }, { brand: 'BMW', model: 'F 850 GS' },
-    { brand: 'BMW', model: 'F 750 GS' }, { brand: 'BMW', model: 'R nineT' }, { brand: 'BMW', model: 'R nineT Scrambler' },
-    { brand: 'BMW', model: 'R 1250 GS' }, { brand: 'BMW', model: 'R 1250 RT' }, { brand: 'BMW', model: 'R 1250 R' },
-    { brand: 'BMW', model: 'R 18' }, { brand: 'BMW', model: 'S 1000 RR' }, { brand: 'BMW', model: 'S 1000 XR' },
-    { brand: 'BMW', model: 'M 1000 RR' }, { brand: 'BMW', model: 'K 1600 GT' }, { brand: 'BMW', model: 'K 1600 GTL' },
-    { brand: 'BMW', model: 'C 400 X' }, { brand: 'BMW', model: 'C 400 GT' }, { brand: 'BMW', model: 'C 650 GT' },
-    { brand: 'BMW', model: 'CE 04' },
-    // Triumph
-    { brand: 'Triumph', model: 'Street Triple' }, { brand: 'Triumph', model: 'Street Triple R' },
-    { brand: 'Triumph', model: 'Street Triple RS' }, { brand: 'Triumph', model: 'Speed Triple 1200' },
-    { brand: 'Triumph', model: 'Trident 660' }, { brand: 'Triumph', model: 'Tiger 660' },
-    { brand: 'Triumph', model: 'Tiger 900' }, { brand: 'Triumph', model: 'Tiger 1200' },
-    { brand: 'Triumph', model: 'Bonneville T100' }, { brand: 'Triumph', model: 'Bonneville T120' },
-    { brand: 'Triumph', model: 'Bonneville Bobber' }, { brand: 'Triumph', model: 'Bonneville Speedmaster' },
-    { brand: 'Triumph', model: 'Scrambler 900' }, { brand: 'Triumph', model: 'Scrambler 1200' },
-    { brand: 'Triumph', model: 'Thruxton RS' }, { brand: 'Triumph', model: 'Rocket 3' },
-    { brand: 'Triumph', model: 'Speed 400' }, { brand: 'Triumph', model: 'Scrambler 400 X' },
-    // KTM
-    { brand: 'KTM', model: 'Duke 125' }, { brand: 'KTM', model: 'Duke 200' }, { brand: 'KTM', model: 'Duke 250' },
-    { brand: 'KTM', model: 'Duke 390' }, { brand: 'KTM', model: 'Duke 790' }, { brand: 'KTM', model: 'Duke 890' },
-    { brand: 'KTM', model: 'Duke 1290' }, { brand: 'KTM', model: 'RC 125' }, { brand: 'KTM', model: 'RC 200' },
-    { brand: 'KTM', model: 'RC 390' }, { brand: 'KTM', model: 'Adventure 250' }, { brand: 'KTM', model: 'Adventure 390' },
-    { brand: 'KTM', model: 'Adventure 890' }, { brand: 'KTM', model: 'Adventure 1290' },
-    { brand: 'KTM', model: 'EXC 250' }, { brand: 'KTM', model: 'EXC 300' },
-    { brand: 'KTM', model: 'SX 125' }, { brand: 'KTM', model: 'SX 250' }, { brand: 'KTM', model: 'SX 450' },
-    { brand: 'KTM', model: '690 Enduro R' }, { brand: 'KTM', model: '890 Duke R' }, { brand: 'KTM', model: '890 Adventure' },
-    { brand: 'KTM', model: '1290 Super Duke R' }, { brand: 'KTM', model: '1290 Super Adventure' },
-    // Aprilia
-    { brand: 'Aprilia', model: 'RS 125' }, { brand: 'Aprilia', model: 'RS 150' }, { brand: 'Aprilia', model: 'RS 660' },
-    { brand: 'Aprilia', model: 'RSV4' }, { brand: 'Aprilia', model: 'Tuono 660' }, { brand: 'Aprilia', model: 'Tuono V4' },
-    { brand: 'Aprilia', model: 'Tuareg 660' }, { brand: 'Aprilia', model: 'SR GT 125' }, { brand: 'Aprilia', model: 'SR GT 160' },
-    { brand: 'Aprilia', model: 'SR GT 200' }, { brand: 'Aprilia', model: 'SXR 160' },
-    // Benelli
-    { brand: 'Benelli', model: 'TNT 135' }, { brand: 'Benelli', model: 'TNT 250' }, { brand: 'Benelli', model: 'TNT 300' },
-    { brand: 'Benelli', model: 'TNT 600' }, { brand: 'Benelli', model: '302R' }, { brand: 'Benelli', model: '302S' },
-    { brand: 'Benelli', model: 'Leoncino 250' }, { brand: 'Benelli', model: 'Leoncino 500' },
-    { brand: 'Benelli', model: 'TRK 251' }, { brand: 'Benelli', model: 'TRK 502' },
-    { brand: 'Benelli', model: '502C' }, { brand: 'Benelli', model: 'Imperiale 400' },
-    // CFMoto
-    { brand: 'CFMoto', model: '250NK' }, { brand: 'CFMoto', model: '300NK' }, { brand: 'CFMoto', model: '300SR' },
-    { brand: 'CFMoto', model: '450NK' }, { brand: 'CFMoto', model: '450SR' }, { brand: 'CFMoto', model: '450MT' },
-    { brand: 'CFMoto', model: '650NK' }, { brand: 'CFMoto', model: '650MT' },
-    { brand: 'CFMoto', model: '700CL-X' }, { brand: 'CFMoto', model: '800MT' },
-    // Modenas
-    { brand: 'Modenas', model: 'Kriss 110' }, { brand: 'Modenas', model: 'Kriss MR' }, { brand: 'Modenas', model: 'Kriss MR2' },
-    { brand: 'Modenas', model: 'Karisma 125' }, { brand: 'Modenas', model: 'Pulsar NS160' },
-    { brand: 'Modenas', model: 'Pulsar NS200' }, { brand: 'Modenas', model: 'Pulsar RS200' },
-    { brand: 'Modenas', model: 'Dominar D400' }, { brand: 'Modenas', model: 'V15' },
-    { brand: 'Modenas', model: 'Elegan 250' }, { brand: 'Modenas', model: 'CT 110' },
-    // Honda (additional Malaysia-specific)
-    { brand: 'Honda', model: 'Wave Dash' }, { brand: 'Honda', model: 'Future 125' },
-    { brand: 'Honda', model: 'CB150X' }, { brand: 'Honda', model: 'CBR1000RR-R' },
-    // Yamaha (additional)
-    { brand: 'Yamaha', model: 'YZF-R15' }, { brand: 'Yamaha', model: 'YZF-R25' },
-    { brand: 'Yamaha', model: 'MT-15 (2024)' }, { brand: 'Yamaha', model: 'NMAX Connected' },
-    { brand: 'Yamaha', model: 'XMAX 300' },
-    // Kawasaki (additional)
-    { brand: 'Kawasaki', model: 'Ninja 400 (2024)' }, { brand: 'Kawasaki', model: 'Z900SE' },
-    // Ducati (additional)
-    { brand: 'Ducati', model: 'Panigale V4S' }, { brand: 'Ducati', model: 'Panigale V4 SP2' },
-    { brand: 'Ducati', model: 'Streetfighter V4S' }, { brand: 'Ducati', model: 'Multistrada V4 Rally' },
-    { brand: 'Ducati', model: 'Desert X Rally' },
-    // BMW (additional)
-    { brand: 'BMW', model: 'R 1300 GS' }, { brand: 'BMW', model: 'S 1000 RR (2024)' },
-    // Triumph (additional)
-    { brand: 'Triumph', model: 'Daytona 660' }, { brand: 'Triumph', model: 'Tiger Sport 660' },
-    // KTM (additional)
-    { brand: 'KTM', model: 'RC 8C' }, { brand: 'KTM', model: '1390 Super Duke R' },
-    // MV Agusta
-    { brand: 'MV Agusta', model: 'Brutale 800' }, { brand: 'MV Agusta', model: 'F3 800' },
-    { brand: 'MV Agusta', model: 'Dragster 800' }, { brand: 'MV Agusta', model: 'Turismo Veloce' },
-    // Royal Enfield
-    { brand: 'Royal Enfield', model: 'Classic 350' }, { brand: 'Royal Enfield', model: 'Meteor 350' },
-    { brand: 'Royal Enfield', model: 'Himalayan' }, { brand: 'Royal Enfield', model: 'Hunter 350' },
-    { brand: 'Royal Enfield', model: 'Continental GT 650' }, { brand: 'Royal Enfield', model: 'Interceptor 650' },
-    // Harley-Davidson
-    { brand: 'Harley-Davidson', model: 'Iron 883' }, { brand: 'Harley-Davidson', model: 'Forty-Eight' },
-    { brand: 'Harley-Davidson', model: 'Street Bob' }, { brand: 'Harley-Davidson', model: 'Fat Bob' },
-    { brand: 'Harley-Davidson', model: 'Low Rider S' }, { brand: 'Harley-Davidson', model: 'Sportster S' },
-    { brand: 'Harley-Davidson', model: 'Pan America 1250' },
-    // Husqvarna
-    { brand: 'Husqvarna', model: 'Svartpilen 200' }, { brand: 'Husqvarna', model: 'Svartpilen 401' },
-    { brand: 'Husqvarna', model: 'Vitpilen 401' }, { brand: 'Husqvarna', model: 'Norden 901' },
-    // Zontes
-    { brand: 'Zontes', model: '310R' }, { brand: 'Zontes', model: '310X' }, { brand: 'Zontes', model: '310T' },
-    { brand: 'Zontes', model: '350D' }, { brand: 'Zontes', model: '350T' },
-    // QJ Motor
-    { brand: 'QJ Motor', model: 'SRK 400' }, { brand: 'QJ Motor', model: 'SRV 400' },
-    { brand: 'QJ Motor', model: 'SRC 500' },
-    // WMoto
-    { brand: 'WMoto', model: 'RT3' }, { brand: 'WMoto', model: 'Cubi Max' },
-    // SYM
-    { brand: 'SYM', model: 'Jet X 150' }, { brand: 'SYM', model: 'Maxsym 400' },
-    { brand: 'SYM', model: 'Cruisym 150' },
-    // Kymco
-    { brand: 'Kymco', model: 'Downtown 250' }, { brand: 'Kymco', model: 'Xciting 400' },
-    { brand: 'Kymco', model: 'AK550' },
-    // GPX
-    { brand: 'GPX', model: 'Demon 150' }, { brand: 'GPX', model: 'Legend 200' },
-    { brand: 'GPX', model: 'Drone 150' }, { brand: 'GPX', model: 'FSE 200' },
-];
-
+const bikeData = typeof BIKE_DATA !== 'undefined' ? BIKE_DATA : [];
 let selectedBike = '';
 
 function initBikeSearch() {
@@ -647,11 +482,16 @@ function renderCalendar() {
             btn.addEventListener('click', () => selectDate(cellDate, btn));
         }
 
+        // Only show "today" marker — NOT the selected style
         if (cellDate.getTime() === today.getTime()) {
             btn.classList.add('today');
         }
 
-        if (selectedDate && cellDate.getTime() === selectedDate.getTime()) {
+        // Only show selected if the selected date is in the CURRENT displayed month
+        if (selectedDate &&
+            selectedDate.getFullYear() === year &&
+            selectedDate.getMonth() === month &&
+            cellDate.getTime() === selectedDate.getTime()) {
             btn.classList.add('selected');
         }
 
@@ -663,8 +503,8 @@ function selectDate(date, btn) {
     selectedDate = date;
     document.getElementById('bookingDate').value = date.toISOString().split('T')[0];
 
-    // Update visual selection
-    document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+    // Update visual selection — only remove from current month's buttons
+    document.querySelectorAll('#calDays .calendar-day').forEach(d => d.classList.remove('selected'));
     btn.classList.add('selected');
 }
 
