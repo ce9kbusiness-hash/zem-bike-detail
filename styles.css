@@ -509,15 +509,15 @@ ul { list-style: none; }
 .service-featured-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
     margin-bottom: 12px;
 }
 
 .service-badge {
     padding: 4px 14px;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 50px;
     font-size: 0.68rem;
     font-weight: 800;
@@ -881,10 +881,10 @@ ul { list-style: none; }
 }
 
 .calendar-day.selected {
-    background: var(--primary);
-    color: var(--white);
+    background: #e8e8e8;
+    color: #111;
     font-weight: 700;
-    border-color: var(--primary);
+    border-color: #bbb;
 }
 
 .calendar-day.disabled {
@@ -1379,10 +1379,10 @@ ul { list-style: none; }
 }
 
 .calendar-day.selected {
-    background: var(--primary);
-    color: var(--white);
+    background: #e8e8e8;
+    color: #111;
     font-weight: 700;
-    border-color: var(--primary);
+    border-color: #bbb;
 }
 
 .calendar-day.disabled {
