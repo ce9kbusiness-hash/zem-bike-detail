@@ -465,101 +465,80 @@ ul { list-style: none; }
 }
 
 .service-card {
-    background: var(--dark-3);
-    padding: 32px 24px 24px;
+    background: #fff;
+    padding: 32px 28px 28px;
     border-radius: var(--radius-lg);
-    border: 2px solid rgba(0,0,0,0.06);
-    text-align: center;
+    border: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
 }
 
 .service-card:hover {
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: #bbb;
 }
 
 .service-card.featured {
-    border-color: var(--primary);
+    border: 2px solid #000;
 }
 
 .service-card.featured:hover {
-    border-color: var(--primary-light);
-}
-
-.service-accent {
-    height: 4px;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 2px;
-    margin-bottom: 20px;
-}
-
-.service-card.featured .service-accent {
-    background: var(--primary);
-}
-
-.service-num {
-    display: block;
-    text-align: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: rgba(0,0,0,0.15);
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    border-color: #333;
 }
 
 .service-badge {
     display: inline-block;
+    align-self: center;
     padding: 3px 10px;
-    background: #ffffff;
-    color: #000000;
-    border: 1.5px solid #000000;
+    background: #000;
+    color: #fff;
     border-radius: 50px;
-    font-size: 0.62rem;
-    font-weight: 800;
+    font-size: 0.65rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
 }
 
 .service-card h3 {
-    font-size: 1.25rem;
+    text-align: center;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .service-price {
-    font-size: 2.4rem;
+    text-align: center;
+    font-size: 2.2rem;
     font-weight: 900;
-    color: var(--primary);
-    margin-bottom: 16px;
+    color: #000;
+    margin-bottom: 14px;
     line-height: 1;
 }
 
 .service-card > p {
+    text-align: center;
     color: var(--gray);
     font-size: 0.88rem;
     line-height: 1.6;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .service-features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-    margin-bottom: 20px;
-    flex-grow: 1;
-    padding: 0;
     list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
 }
 
 .service-features li {
-    padding: 5px 12px;
-    background: rgba(0,0,0,0.04);
-    border-radius: 50px;
-    font-size: 0.76rem;
-    font-weight: 500;
-    color: var(--gray-light);
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.88rem;
+    color: #444;
+}
+
+.service-features li:last-child {
+    border-bottom: none;
 }
 
 /* ===== About ===== */
