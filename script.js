@@ -482,11 +482,6 @@ function renderCalendar() {
             btn.addEventListener('click', () => selectDate(cellDate, btn));
         }
 
-        // Only show "today" marker — NOT the selected style
-        if (cellDate.getTime() === today.getTime()) {
-            btn.classList.add('today');
-        }
-
         // Only show selected if the selected date is in the CURRENT displayed month
         if (selectedDate &&
             selectedDate.getFullYear() === year &&
