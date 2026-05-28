@@ -1552,7 +1552,7 @@ ul { list-style: none; }
 
     .stat-divider { display: none; }
 
-    .stat-number { font-size: 1.5rem; }
+    .stat-number { font-size: 1.3rem; }
 
     .stat-suffix { font-size: 1rem; }
 
@@ -1628,7 +1628,7 @@ ul { list-style: none; }
 
     .stat { min-width: 100px; }
 
-    .stat-number { font-size: 1.5rem; }
+    .stat-number { font-size: 1.3rem; }
 
     .services-grid { gap: 12px; }
 
