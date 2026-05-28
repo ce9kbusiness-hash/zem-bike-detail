@@ -18,12 +18,18 @@
                 <span class="logo-text">ZEM Bike Detail</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
+                <li><a href="#services" class="nav-link" data-i18n="nav_services">Services</a></li>
+                <li><a href="#reviews" class="nav-link" data-i18n="nav_reviews">Reviews</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
-            <button class="nav-cta" onclick="openBookingModal()">Book Now</button>
+            <div class="nav-right">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                    <span class="lang-flag">EN</span>
+                </button>
+                <button class="nav-cta" onclick="openBookingModal()" data-i18n="nav_book">Book Now</button>
+            </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -39,38 +45,38 @@
             <div class="hero-pattern"></div>
         </div>
         <div class="container hero-content">
-            <div class="hero-badge">Powered by IGL Products</div>
+            <div class="hero-badge" data-i18n="hero_badge">Powered by IGL Products</div>
             <h1 class="hero-title">
-                Premium <span class="gradient-text">Bike Detailing</span><br>
-                That Turns Heads
+                <span data-i18n="hero_title_1">Premium</span> <span class="gradient-text" data-i18n="hero_title_2">Bike Detailing</span><br>
+                <span data-i18n="hero_title_3">That Turns Heads</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero_subtitle">
                 ZEM Bike Detail delivers professional motorbike detailing services using
                 exclusive IGL Products. From a quick wash to full ceramic coating — we make your ride shine.
             </p>
             <div class="hero-actions">
-                <button class="btn btn-primary" onclick="openBookingModal()">Book Your Slot</button>
-                <a href="#services" class="btn btn-outline">View Services</a>
+                <button class="btn btn-primary" onclick="openBookingModal()" data-i18n="hero_cta">Book Your Slot</button>
+                <a href="#services" class="btn btn-outline" data-i18n="hero_cta2">View Services</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number" data-target="1000">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Bikes Detailed</span>
+                    <span class="stat-label" data-i18n="stat_bikes">Bikes Detailed</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat">
                     <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
-                    <span class="stat-label">IGL Products</span>
+                    <span class="stat-label" data-i18n="stat_igl">IGL Products</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat">
                     <span class="stat-number" data-target="5">0</span><span class="stat-suffix">★</span>
-                    <span class="stat-label">Customer Rating</span>
+                    <span class="stat-label" data-i18n="stat_rating">Customer Rating</span>
                 </div>
             </div>
         </div>
         <div class="hero-scroll">
-            <span>Scroll</span>
+            <span data-i18n="scroll">Scroll</span>
             <div class="scroll-line"></div>
         </div>
     </section>
@@ -79,101 +85,175 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2 class="section-title">Choose Your <span class="gradient-text">Package</span></h2>
-                <p class="section-desc">
+                <span class="section-tag" data-i18n="services_tag">Our Services</span>
+                <h2 class="section-title"><span data-i18n="services_title_1">Choose Your</span> <span class="gradient-text" data-i18n="services_title_2">Package</span></h2>
+                <p class="section-desc" data-i18n="services_desc">
                     Every service uses premium IGL Products for the best care and protection for your bike.
                 </p>
             </div>
             <div class="services-grid">
+                <!-- 01 Basic Wash -->
                 <div class="service-card" data-animate>
-                    <div class="service-number">01</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                        </svg>
-                    </div>
-                    <h3>Basic Wash</h3>
-                    <div class="service-price">RM49</div>
-                    <p>A thorough exterior wash using IGL shampoo to remove dirt and grime, leaving your bike spotless.</p>
+                    <div class="service-accent"></div>
+                    <span class="service-num">01</span>
+                    <h3 data-i18n="svc_basic_name">Basic Wash</h3>
+                    <div class="service-price">RM29</div>
+                    <p data-i18n="svc_basic_desc">A thorough exterior wash using IGL shampoo to remove dirt and grime, leaving your bike spotless.</p>
                     <ul class="service-features">
-                        <li>IGL Shampoo Wash</li>
-                        <li>Chain Cleaning</li>
-                        <li>Tire Shine</li>
+                        <li data-i18n="svc_basic_f1">IGL Shampoo Wash</li>
+                        <li data-i18n="svc_basic_f2">Chain Cleaning</li>
+                        <li data-i18n="svc_basic_f3">Tire Shine</li>
                     </ul>
-                    <button class="btn btn-service" onclick="openBookingModal('Basic Wash', 49)">Book Now</button>
+                    <button class="btn btn-service" onclick="openBookingModal('Basic Wash', 29)" data-i18n="book_now">Book Now</button>
                 </div>
+                <!-- 02 Premium Wash -->
                 <div class="service-card" data-animate>
-                    <div class="service-number">02</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3>Premium Wash</h3>
-                    <div class="service-price">RM69</div>
-                    <p>Upgraded wash with IGL pre-wash foam, detailed cleaning of all surfaces, and quick spray sealant.</p>
+                    <div class="service-accent"></div>
+                    <span class="service-num">02</span>
+                    <h3 data-i18n="svc_premium_name">Premium Wash</h3>
+                    <div class="service-price">RM59</div>
+                    <p data-i18n="svc_premium_desc">Upgraded wash with IGL pre-wash foam, detailed cleaning of all surfaces, and quick spray sealant.</p>
                     <ul class="service-features">
-                        <li>IGL Pre-Wash Foam</li>
-                        <li>Deep Clean</li>
-                        <li>Spray Sealant</li>
+                        <li data-i18n="svc_premium_f1">IGL Pre-Wash Foam</li>
+                        <li data-i18n="svc_premium_f2">Deep Clean</li>
+                        <li data-i18n="svc_premium_f3">Spray Sealant</li>
                     </ul>
-                    <button class="btn btn-service" onclick="openBookingModal('Premium Wash', 69)">Book Now</button>
+                    <button class="btn btn-service" onclick="openBookingModal('Premium Wash', 59)" data-i18n="book_now">Book Now</button>
                 </div>
+                <!-- 03 King Wash (Popular) -->
                 <div class="service-card featured" data-animate>
-                    <div class="service-badge">Popular</div>
-                    <div class="service-number">03</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                        </svg>
+                    <div class="service-accent"></div>
+                    <div class="service-featured-header">
+                        <span class="service-num">03</span>
+                        <span class="service-badge" data-i18n="popular">Popular</span>
                     </div>
-                    <h3>King Wash</h3>
-                    <div class="service-price">RM99</div>
-                    <p>The ultimate wash package. Full IGL treatment with foam cannon, hand wash, wax protection, and detail spray.</p>
+                    <h3 data-i18n="svc_king_name">King Wash</h3>
+                    <div class="service-price">RM79</div>
+                    <p data-i18n="svc_king_desc">The ultimate wash package. Full IGL treatment with foam cannon, hand wash, wax protection, and detail spray.</p>
                     <ul class="service-features">
-                        <li>IGL Foam Cannon</li>
-                        <li>Hand Wax</li>
-                        <li>Detail Spray</li>
-                        <li>Engine Bay Clean</li>
+                        <li data-i18n="svc_king_f1">IGL Foam Cannon</li>
+                        <li data-i18n="svc_king_f2">Hand Wax</li>
+                        <li data-i18n="svc_king_f3">Detail Spray</li>
+                        <li data-i18n="svc_king_f4">Engine Bay Clean</li>
                     </ul>
-                    <button class="btn btn-service" onclick="openBookingModal('King Wash', 99)">Book Now</button>
+                    <button class="btn btn-primary" onclick="openBookingModal('King Wash', 79)" data-i18n="book_now">Book Now</button>
                 </div>
+                <!-- 04 Premium Polish -->
                 <div class="service-card" data-animate>
-                    <div class="service-number">04</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
-                        </svg>
-                    </div>
-                    <h3>Premium Polish</h3>
-                    <div class="service-price">RM299</div>
-                    <p>Machine polishing with IGL polish compounds to remove swirl marks, scratches, and restore paint clarity.</p>
+                    <div class="service-accent"></div>
+                    <span class="service-num">04</span>
+                    <h3 data-i18n="svc_polish_name">Premium Polish</h3>
+                    <div class="service-price">RM179</div>
+                    <p data-i18n="svc_polish_desc">Machine polishing with IGL polish compounds to remove swirl marks, scratches, and restore paint clarity.</p>
                     <ul class="service-features">
-                        <li>IGL Polish Compounds</li>
-                        <li>Swirl Removal</li>
-                        <li>Paint Correction</li>
-                        <li>Gloss Enhancement</li>
+                        <li data-i18n="svc_polish_f1">IGL Polish Compounds</li>
+                        <li data-i18n="svc_polish_f2">Swirl Removal</li>
+                        <li data-i18n="svc_polish_f3">Paint Correction</li>
+                        <li data-i18n="svc_polish_f4">Gloss Enhancement</li>
                     </ul>
-                    <button class="btn btn-service" onclick="openBookingModal('Premium Polish', 299)">Book Now</button>
+                    <button class="btn btn-service" onclick="openBookingModal('Premium Polish', 179)" data-i18n="book_now">Book Now</button>
                 </div>
+                <!-- 05 Coating -->
                 <div class="service-card" data-animate>
-                    <div class="service-number">05</div>
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>Coating</h3>
-                    <div class="service-price">RM359</div>
-                    <p>Professional IGL ceramic coating application for long-lasting protection, hydrophobic finish, and deep gloss.</p>
+                    <div class="service-accent"></div>
+                    <span class="service-num">05</span>
+                    <h3 data-i18n="svc_coating_name">Coating</h3>
+                    <div class="service-price">RM279</div>
+                    <p data-i18n="svc_coating_desc">Professional IGL ceramic coating application for long-lasting protection, hydrophobic finish, and deep gloss.</p>
                     <ul class="service-features">
-                        <li>IGL Ceramic Coating</li>
-                        <li>Hydrophobic Shield</li>
-                        <li>UV Protection</li>
-                        <li>12+ Month Durability</li>
+                        <li data-i18n="svc_coating_f1">IGL Ceramic Coating</li>
+                        <li data-i18n="svc_coating_f2">Hydrophobic Shield</li>
+                        <li data-i18n="svc_coating_f3">UV Protection</li>
+                        <li data-i18n="svc_coating_f4">12+ Month Durability</li>
                     </ul>
-                    <button class="btn btn-service" onclick="openBookingModal('Coating', 359)">Book Now</button>
+                    <button class="btn btn-service" onclick="openBookingModal('Coating', 279)" data-i18n="book_now">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="reviews_tag">Customer Reviews</span>
+                <h2 class="section-title"><span data-i18n="reviews_title_1">What Our</span> <span class="gradient-text" data-i18n="reviews_title_2">Riders</span> <span data-i18n="reviews_title_3">Say</span></h2>
+                <p class="section-desc" data-i18n="reviews_desc">
+                    Real feedback from riders who trusted us with their bikes.
+                </p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card" data-animate>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="review_1_text">"Amazing service! My Y15ZR looks brand new after the King Wash. The foam cannon treatment really makes a difference. Will definitely come back!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">AH</div>
+                        <div>
+                            <div class="review-name">Ahmad Hafiz</div>
+                            <div class="review-bike">Yamaha Y15ZR</div>
+                        </div>
+                    </div>
+                    <div class="review-service" data-i18n="review_1_svc">King Wash</div>
+                </div>
+                <div class="review-card" data-animate>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="review_2_text">"The ceramic coating is worth every ringgit. It's been 3 months and water still beads off like day one. Professional team and great results."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SM</div>
+                        <div>
+                            <div class="review-name">Siti Mariam</div>
+                            <div class="review-bike">Honda PCX160</div>
+                        </div>
+                    </div>
+                    <div class="review-service" data-i18n="review_2_svc">Coating</div>
+                </div>
+                <div class="review-card" data-animate>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="review_3_text">"Sent my Ninja 250 for paint correction and polish. The swirl marks are completely gone and the gloss is incredible. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">KR</div>
+                        <div>
+                            <div class="review-name">Kevin Raj</div>
+                            <div class="review-bike">Kawasaki Ninja 250</div>
+                        </div>
+                    </div>
+                    <div class="review-service" data-i18n="review_3_svc">Premium Polish</div>
+                </div>
+                <div class="review-card" data-animate>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="review_4_text">"Quick and thorough basic wash. The chain cleaning was very detailed and the tire shine lasted for weeks. Great value for RM29!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">NF</div>
+                        <div>
+                            <div class="review-name">Nurul Fatimah</div>
+                            <div class="review-bike">Honda EX5</div>
+                        </div>
+                    </div>
+                    <div class="review-service" data-i18n="review_4_svc">Basic Wash</div>
+                </div>
+                <div class="review-card" data-animate>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="review_5_text">"The premium wash with spray sealant is my go-to every month. My V-Strom always looks showroom ready after their treatment. Top notch!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MI</div>
+                        <div>
+                            <div class="review-name">Mohd Irfan</div>
+                            <div class="review-bike">Suzuki V-Strom 650</div>
+                        </div>
+                    </div>
+                    <div class="review-service" data-i18n="review_5_svc">Premium Wash</div>
+                </div>
+                <div class="review-card" data-animate>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="review_6_text">"Brought my Duke 390 for full coating before a long ride to Terengganu. The protection held up through rain and highway bugs. Best investment for my bike!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">AZ</div>
+                        <div>
+                            <div class="review-name">Amir Zulkifli</div>
+                            <div class="review-bike">KTM Duke 390</div>
+                        </div>
+                    </div>
+                    <div class="review-service" data-i18n="review_6_svc">Coating</div>
                 </div>
             </div>
         </div>
@@ -183,9 +263,9 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">About Us</span>
-                <h2 class="section-title">Why Choose <span class="gradient-text">ZEM Bike Detail</span></h2>
-                <p class="section-desc">
+                <span class="section-tag" data-i18n="about_tag">About Us</span>
+                <h2 class="section-title"><span data-i18n="about_title_1">Why Choose</span> <span class="gradient-text">ZEM Bike Detail</span></h2>
+                <p class="section-desc" data-i18n="about_desc">
                     We treat every bike like our own. Premium products, professional results.
                 </p>
             </div>
@@ -196,8 +276,8 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
-                    <h3>IGL Certified Products</h3>
-                    <p>We exclusively use IGL Products across all services — from shampoo to ceramic coating — ensuring consistent premium quality and protection for your bike.</p>
+                    <h3 data-i18n="about_1_title">IGL Certified Products</h3>
+                    <p data-i18n="about_1_desc">We exclusively use IGL Products across all services — from shampoo to ceramic coating — ensuring consistent premium quality and protection for your bike.</p>
                 </div>
                 <div class="about-card" data-animate>
                     <div class="about-card-icon">
@@ -205,8 +285,8 @@
                             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                         </svg>
                     </div>
-                    <h3>Attention to Detail</h3>
-                    <p>Every corner, every bolt, every panel — we don't miss a spot. Our detailing process is thorough and methodical for flawless results every time.</p>
+                    <h3 data-i18n="about_2_title">Attention to Detail</h3>
+                    <p data-i18n="about_2_desc">Every corner, every bolt, every panel — we don't miss a spot. Our detailing process is thorough and methodical for flawless results every time.</p>
                 </div>
                 <div class="about-card" data-animate>
                     <div class="about-card-icon">
@@ -214,8 +294,8 @@
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                     </div>
-                    <h3>Trusted by Riders</h3>
-                    <p>Over 1,000 bikes detailed and counting. Our customers keep coming back because we deliver consistent, showroom-quality results.</p>
+                    <h3 data-i18n="about_3_title">Trusted by Riders</h3>
+                    <p data-i18n="about_3_desc">Over 1,000 bikes detailed and counting. Our customers keep coming back because we deliver consistent, showroom-quality results.</p>
                 </div>
             </div>
         </div>
@@ -226,20 +306,20 @@
         <div class="container">
             <div class="contact-card">
                 <div class="contact-content">
-                    <h2>Get in Touch</h2>
-                    <p>Have questions or want to discuss a custom package? Reach out to us.</p>
+                    <h2 data-i18n="contact_title">Get in Touch</h2>
+                    <p data-i18n="contact_desc">Have questions or want to discuss a custom package? Reach out to us.</p>
                     <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        <a href="https://wa.me/60139091237" target="_blank" rel="noopener noreferrer" class="contact-item contact-item-link">
+                            <div class="contact-icon contact-icon-whatsapp">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h4>Phone</h4>
-                                <p>+60 12-345 6789</p>
+                                <h4>WhatsApp</h4>
+                                <p>+60 13-909 1237</p>
                             </div>
-                        </div>
+                        </a>
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -247,8 +327,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4>Location</h4>
-                                <p>Malaysia</p>
+                                <h4 data-i18n="contact_location">Location</h4>
+                                <p data-i18n="contact_location_value">Gong Badak, Terengganu</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -265,9 +345,9 @@
                     </div>
                 </div>
                 <div class="contact-cta">
-                    <h3>Ready to Book?</h3>
-                    <p>Schedule your bike detailing appointment online in just a few clicks.</p>
-                    <button class="btn btn-primary btn-lg" onclick="openBookingModal()">Book Now</button>
+                    <h3 data-i18n="contact_cta_title">Ready to Book?</h3>
+                    <p data-i18n="contact_cta_desc">Schedule your bike detailing appointment online in just a few clicks.</p>
+                    <button class="btn btn-primary btn-lg" onclick="openBookingModal()" data-i18n="book_now">Book Now</button>
                 </div>
             </div>
         </div>
@@ -281,7 +361,7 @@
                     <span class="logo-icon">Z</span>
                     <span class="logo-text">ZEM Bike Detail</span>
                 </a>
-                <p>&copy; 2026 ZEM Bike Detail. All rights reserved. Powered by IGL Products.</p>
+                <p data-i18n="footer_copy">&copy; 2026 ZEM Bike Detail. All rights reserved. Powered by IGL Products.</p>
             </div>
         </div>
     </footer>
@@ -291,7 +371,7 @@
         <div class="modal">
             <button class="modal-close" onclick="closeBookingModal()">&times;</button>
             <div class="modal-header">
-                <h2>Book Your Service</h2>
+                <h2 data-i18n="modal_title">Book Your Service</h2>
                 <div class="step-indicators">
                     <div class="step-dot active" data-step="1">1</div>
                     <div class="step-line"></div>
@@ -305,58 +385,75 @@
 
             <!-- Step 1: Select Service -->
             <div class="modal-step active" id="step1">
-                <h3>Select a Service</h3>
+                <h3 data-i18n="step1_title">Select a Service</h3>
                 <div class="service-select-list">
                     <label class="service-option">
-                        <input type="radio" name="service" value="Basic Wash" data-price="49">
+                        <input type="radio" name="service" value="Basic Wash" data-price="29">
                         <span class="service-option-content">
-                            <span class="service-option-name">Basic Wash</span>
-                            <span class="service-option-price">RM49</span>
+                            <span class="service-option-name" data-i18n="svc_basic_name">Basic Wash</span>
+                            <span class="service-option-price">RM29</span>
                         </span>
                     </label>
                     <label class="service-option">
-                        <input type="radio" name="service" value="Premium Wash" data-price="69">
+                        <input type="radio" name="service" value="Premium Wash" data-price="59">
                         <span class="service-option-content">
-                            <span class="service-option-name">Premium Wash</span>
-                            <span class="service-option-price">RM69</span>
+                            <span class="service-option-name" data-i18n="svc_premium_name">Premium Wash</span>
+                            <span class="service-option-price">RM59</span>
                         </span>
                     </label>
                     <label class="service-option">
-                        <input type="radio" name="service" value="King Wash" data-price="99">
+                        <input type="radio" name="service" value="King Wash" data-price="79">
                         <span class="service-option-content">
-                            <span class="service-option-name">King Wash</span>
-                            <span class="service-option-price">RM99</span>
+                            <span class="service-option-name" data-i18n="svc_king_name">King Wash</span>
+                            <span class="service-option-price">RM79</span>
                         </span>
                     </label>
                     <label class="service-option">
-                        <input type="radio" name="service" value="Premium Polish" data-price="299">
+                        <input type="radio" name="service" value="Premium Polish" data-price="179">
                         <span class="service-option-content">
-                            <span class="service-option-name">Premium Polish</span>
-                            <span class="service-option-price">RM299</span>
+                            <span class="service-option-name" data-i18n="svc_polish_name">Premium Polish</span>
+                            <span class="service-option-price">RM179</span>
                         </span>
                     </label>
                     <label class="service-option">
-                        <input type="radio" name="service" value="Coating" data-price="359">
+                        <input type="radio" name="service" value="Coating" data-price="279">
                         <span class="service-option-content">
-                            <span class="service-option-name">Coating</span>
-                            <span class="service-option-price">RM359</span>
+                            <span class="service-option-name" data-i18n="svc_coating_name">Coating</span>
+                            <span class="service-option-price">RM279</span>
                         </span>
                     </label>
                 </div>
                 <div class="modal-actions">
-                    <button class="btn btn-primary" onclick="nextStep(2)">Next</button>
+                    <button class="btn btn-primary" onclick="nextStep(2)" data-i18n="next">Next</button>
                 </div>
             </div>
 
             <!-- Step 2: Select Date & Time -->
             <div class="modal-step" id="step2">
-                <h3>Pick Date & Time</h3>
+                <h3 data-i18n="step2_title">Pick Date & Time</h3>
                 <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" id="bookingDate" required>
+                    <label data-i18n="date_label">Date</label>
+                    <div class="custom-calendar" id="customCalendar">
+                        <div class="calendar-header">
+                            <button class="calendar-nav" id="calPrev" type="button">&lsaquo;</button>
+                            <span class="calendar-month-year" id="calMonthYear"></span>
+                            <button class="calendar-nav" id="calNext" type="button">&rsaquo;</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <span data-i18n="cal_sun">Sun</span>
+                            <span data-i18n="cal_mon">Mon</span>
+                            <span data-i18n="cal_tue">Tue</span>
+                            <span data-i18n="cal_wed">Wed</span>
+                            <span data-i18n="cal_thu">Thu</span>
+                            <span data-i18n="cal_fri">Fri</span>
+                            <span data-i18n="cal_sat">Sat</span>
+                        </div>
+                        <div class="calendar-days" id="calDays"></div>
+                        <input type="hidden" id="bookingDate" required>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Time Slot</label>
+                    <label data-i18n="time_label">Time Slot</label>
                     <div class="time-slots">
                         <label class="time-slot">
                             <input type="radio" name="time" value="09:00">
@@ -369,6 +466,10 @@
                         <label class="time-slot">
                             <input type="radio" name="time" value="11:00">
                             <span>11:00 AM</span>
+                        </label>
+                        <label class="time-slot">
+                            <input type="radio" name="time" value="12:00">
+                            <span>12:00 PM</span>
                         </label>
                         <label class="time-slot">
                             <input type="radio" name="time" value="13:00">
@@ -393,76 +494,80 @@
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button class="btn btn-outline" onclick="prevStep(1)">Back</button>
-                    <button class="btn btn-primary" onclick="nextStep(3)">Next</button>
+                    <button class="btn btn-outline" onclick="prevStep(1)" data-i18n="back">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(3)" data-i18n="next">Next</button>
                 </div>
             </div>
 
             <!-- Step 3: Customer Details -->
             <div class="modal-step" id="step3">
-                <h3>Your Details</h3>
+                <h3 data-i18n="step3_title">Your Details</h3>
                 <div class="form-group">
-                    <label>Full Name *</label>
+                    <label data-i18n="name_label">Full Name *</label>
                     <input type="text" id="custName" placeholder="Ahmad bin Ali" required>
                 </div>
                 <div class="form-group">
-                    <label>Phone Number *</label>
+                    <label data-i18n="phone_label">Phone Number *</label>
                     <input type="tel" id="custPhone" placeholder="+60 12-345 6789" required>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
+                    <label data-i18n="email_label">Email</label>
                     <input type="email" id="custEmail" placeholder="ahmad@email.com">
                 </div>
                 <div class="form-group">
-                    <label>Bike Model *</label>
-                    <input type="text" id="custBike" placeholder="Yamaha Y15ZR / Honda Dash 125" required>
+                    <label data-i18n="bike_label">Bike Model *</label>
+                    <div class="bike-search" id="bikeSearch">
+                        <input type="text" id="bikeSearchInput" placeholder="Search bike model..." autocomplete="off">
+                        <input type="hidden" id="custBike" value="">
+                        <div class="bike-dropdown" id="bikeDropdown"></div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>Notes (optional)</label>
+                    <label data-i18n="notes_label">Notes (optional)</label>
                     <textarea id="custNotes" placeholder="Any special requests..." rows="3"></textarea>
                 </div>
                 <div class="modal-actions">
-                    <button class="btn btn-outline" onclick="prevStep(2)">Back</button>
-                    <button class="btn btn-primary" onclick="nextStep(4)">Review</button>
+                    <button class="btn btn-outline" onclick="prevStep(2)" data-i18n="back">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(4)" data-i18n="review_btn">Review</button>
                 </div>
             </div>
 
             <!-- Step 4: Review & Confirm -->
             <div class="modal-step" id="step4">
-                <h3>Review Your Booking</h3>
+                <h3 data-i18n="step4_title">Review Your Booking</h3>
                 <div class="review-summary">
                     <div class="review-row">
-                        <span class="review-label">Service</span>
+                        <span class="review-label" data-i18n="review_service">Service</span>
                         <span class="review-value" id="reviewService">-</span>
                     </div>
                     <div class="review-row">
-                        <span class="review-label">Price</span>
+                        <span class="review-label" data-i18n="review_price">Price</span>
                         <span class="review-value" id="reviewPrice">-</span>
                     </div>
                     <div class="review-row">
-                        <span class="review-label">Date</span>
+                        <span class="review-label" data-i18n="review_date">Date</span>
                         <span class="review-value" id="reviewDate">-</span>
                     </div>
                     <div class="review-row">
-                        <span class="review-label">Time</span>
+                        <span class="review-label" data-i18n="review_time">Time</span>
                         <span class="review-value" id="reviewTime">-</span>
                     </div>
                     <div class="review-row">
-                        <span class="review-label">Name</span>
+                        <span class="review-label" data-i18n="review_name">Name</span>
                         <span class="review-value" id="reviewName">-</span>
                     </div>
                     <div class="review-row">
-                        <span class="review-label">Phone</span>
+                        <span class="review-label" data-i18n="review_phone">Phone</span>
                         <span class="review-value" id="reviewPhone">-</span>
                     </div>
                     <div class="review-row">
-                        <span class="review-label">Bike</span>
+                        <span class="review-label" data-i18n="review_bike">Bike</span>
                         <span class="review-value" id="reviewBike">-</span>
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button class="btn btn-outline" onclick="prevStep(3)">Back</button>
-                    <button class="btn btn-primary btn-lg" onclick="submitBooking()">Confirm Booking</button>
+                    <button class="btn btn-outline" onclick="prevStep(3)" data-i18n="back">Back</button>
+                    <button class="btn btn-primary btn-lg" onclick="submitBooking()" data-i18n="confirm">Confirm Booking</button>
                 </div>
             </div>
 
@@ -474,9 +579,9 @@
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                     </div>
-                    <h3>Booking Confirmed!</h3>
-                    <p>We'll contact you shortly to confirm your appointment. Thank you for choosing ZEM Bike Detail!</p>
-                    <button class="btn btn-primary" onclick="closeBookingModal()">Done</button>
+                    <h3 data-i18n="success_title">Booking Confirmed!</h3>
+                    <p data-i18n="success_desc">We'll contact you shortly to confirm your appointment. Thank you for choosing ZEM Bike Detail!</p>
+                    <button class="btn btn-primary" onclick="closeBookingModal()" data-i18n="done">Done</button>
                 </div>
             </div>
         </div>
