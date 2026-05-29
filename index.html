@@ -376,6 +376,8 @@
                     <div class="step-dot" data-step="3">3</div>
                     <div class="step-line"></div>
                     <div class="step-dot" data-step="4">4</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" data-step="5">5</div>
                 </div>
             </div>
 
@@ -559,7 +561,38 @@
                 </div>
                 <div class="modal-actions">
                     <button class="btn btn-outline" onclick="prevStep(3)" data-i18n="back">Back</button>
-                    <button class="btn btn-primary btn-lg" onclick="submitBooking()" data-i18n="confirm">Confirm Booking</button>
+                    <button class="btn btn-primary" onclick="nextStep(5)" data-i18n="next">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Payment & Terms -->
+            <div class="modal-step" id="step5">
+                <h3 data-i18n="step5_title">Payment & Terms</h3>
+                <div class="payment-notice">
+                    <div class="payment-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <p data-i18n="payment_notice">Payment is made in person after the service is completed. We accept cash and e-wallet only.</p>
+                </div>
+                <div class="terms-section">
+                    <p class="terms-text" data-i18n="terms_text">By proceeding, I understand and agree to the terms of service. I acknowledge that payment is due upon completion of the service.</p>
+                    <div class="terms-options">
+                        <label class="terms-radio">
+                            <input type="radio" name="terms" value="yes" id="termsYes">
+                            <span class="terms-radio-label" data-i18n="terms_yes">Yes, I understand</span>
+                        </label>
+                        <label class="terms-radio">
+                            <input type="radio" name="terms" value="no" id="termsNo">
+                            <span class="terms-radio-label" data-i18n="terms_no">No, I don't agree</span>
+                        </label>
+                    </div>
+                    <p class="terms-error" id="termsError" data-i18n="terms_error">You must agree to the terms to continue.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-outline" onclick="prevStep(4)" data-i18n="back">Back</button>
+                    <button class="btn btn-primary btn-lg" id="confirmBtn" onclick="submitBooking()" data-i18n="confirm" disabled>Confirm Booking</button>
                 </div>
             </div>
 

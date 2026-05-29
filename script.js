@@ -238,6 +238,12 @@ const translations = {
         review_name: 'Name',
         review_phone: 'Phone',
         review_bike: 'Bike',
+        step5_title: 'Payment & Terms',
+        payment_notice: 'Payment is made in person after the service is completed. We accept cash and e-wallet only.',
+        terms_text: 'By proceeding, I understand and agree to the terms of service. I acknowledge that payment is due upon completion of the service.',
+        terms_yes: 'Yes, I understand',
+        terms_no: 'No, I don\'t agree',
+        terms_error: 'You must agree to the terms to continue.',
         confirm: 'Confirm Booking',
         success_title: 'Booking Confirmed!',
         success_desc: 'We\'ll contact you shortly to confirm your appointment. Thank you for choosing ZEM Bike Detail!',
@@ -364,6 +370,12 @@ const translations = {
         review_name: 'Nama',
         review_phone: 'Telefon',
         review_bike: 'Motosikal',
+        step5_title: 'Pembayaran & Syarat',
+        payment_notice: 'Pembayaran dibuat secara bersemuka selepas perkhidmatan selesai. Kami menerima tunai dan e-wallet sahaja.',
+        terms_text: 'Dengan meneruskan, saya memahami dan bersetuju dengan syarat perkhidmatan. Saya mengakui bahawa pembayaran perlu dibuat selepas perkhidmatan selesai.',
+        terms_yes: 'Ya, saya faham',
+        terms_no: 'Tidak, saya tidak bersetuju',
+        terms_error: 'Anda mesti bersetuju dengan syarat untuk meneruskan.',
         confirm: 'Sahkan Tempahan',
         success_title: 'Tempahan Disahkan!',
         success_desc: 'Kami akan menghubungi anda sebentar lagi untuk mengesahkan temujanji anda. Terima kasih kerana memilih ZEM Bike Detail!',
@@ -548,6 +560,8 @@ function closeBookingModal() {
     document.getElementById('bookingDate').value = '';
     selectedDate = null;
     selectedBike = '';
+    document.getElementById('confirmBtn').disabled = true;
+    document.getElementById('termsError').classList.remove('visible');
 }
 
 function goToStep(step) {
@@ -704,6 +718,23 @@ function launchConfetti() {
 
     setTimeout(() => container.remove(), 4000);
 }
+
+// ===== Terms & Conditions =====
+document.querySelectorAll('input[name="terms"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        const confirmBtn = document.getElementById('confirmBtn');
+        const termsError = document.getElementById('termsError');
+        const yesChecked = document.getElementById('termsYes').checked;
+
+        if (yesChecked) {
+            confirmBtn.disabled = false;
+            termsError.classList.remove('visible');
+        } else {
+            confirmBtn.disabled = true;
+            termsError.classList.add('visible');
+        }
+    });
+});
 
 // ===== Smooth Scroll =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
