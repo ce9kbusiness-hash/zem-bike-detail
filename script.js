@@ -247,6 +247,9 @@ const translations = {
         confirm: 'Confirm Booking',
         success_title: 'Booking Confirmed!',
         success_desc: 'We\'ll contact you shortly to confirm your appointment. Thank you for choosing ZEM Bike Detail!',
+        points_earned: 'Points Earned',
+        points_total: 'Total Points',
+        points_note: 'Earn 1 point for every RM1 spent. Redeem for discounts on your next visit!',
         done: 'Done',
         cal_sun: 'Sun',
         cal_mon: 'Mon',
@@ -379,6 +382,9 @@ const translations = {
         confirm: 'Sahkan Tempahan',
         success_title: 'Tempahan Disahkan!',
         success_desc: 'Kami akan menghubungi anda sebentar lagi untuk mengesahkan temujanji anda. Terima kasih kerana memilih ZEM Bike Detail!',
+        points_earned: 'Mata Diperoleh',
+        points_total: 'Jumlah Mata',
+        points_note: 'Peroleh 1 mata untuk setiap RM1 dibelanjakan. Tebus untuk diskaun pada lawatan seterusnya!',
         done: 'Selesai',
         cal_sun: 'Ahd',
         cal_mon: 'Isn',
@@ -672,6 +678,15 @@ async function submitBooking() {
         if (res.ok) {
             document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
             document.getElementById('stepSuccess').classList.add('active');
+
+            // Points reward system
+            const earned = selectedPrice;
+            let total = parseInt(localStorage.getItem('zemPoints') || '0');
+            total += earned;
+            localStorage.setItem('zemPoints', total.toString());
+            document.getElementById('pointsEarned').textContent = `+${earned}`;
+            document.getElementById('pointsTotal').textContent = total;
+
             launchConfetti();
         } else {
             alert(t.alert_error);
