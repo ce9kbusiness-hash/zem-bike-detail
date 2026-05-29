@@ -247,6 +247,7 @@ const translations = {
         confirm: 'Confirm Booking',
         success_title: 'Booking Confirmed!',
         success_desc: 'We\'ll contact you shortly to confirm your appointment. Thank you for choosing ZEM Bike Detail!',
+        credit_label: 'Detail Credit',
         points_earned: 'Points Earned',
         points_total: 'Total Points',
         points_note: 'Earn 1 point for every RM1 spent. Redeem for discounts on your next visit!',
@@ -382,6 +383,7 @@ const translations = {
         confirm: 'Sahkan Tempahan',
         success_title: 'Tempahan Disahkan!',
         success_desc: 'Kami akan menghubungi anda sebentar lagi untuk mengesahkan temujanji anda. Terima kasih kerana memilih ZEM Bike Detail!',
+        credit_label: 'Kredit Detail',
         points_earned: 'Mata Diperoleh',
         points_total: 'Jumlah Mata',
         points_note: 'Peroleh 1 mata untuk setiap RM1 dibelanjakan. Tebus untuk diskaun pada lawatan seterusnya!',
@@ -449,6 +451,13 @@ const savedLang = localStorage.getItem('zem-lang');
 if (savedLang && translations[savedLang]) {
     setLanguage(savedLang);
 }
+
+// ===== Detail Credit =====
+function updateCreditDisplay() {
+    const points = parseInt(localStorage.getItem('zemPoints') || '0');
+    document.getElementById('creditValue').textContent = points;
+}
+updateCreditDisplay();
 
 // ===== Custom Calendar =====
 let calendarDate = new Date();
@@ -686,6 +695,7 @@ async function submitBooking() {
             localStorage.setItem('zemPoints', total.toString());
             document.getElementById('pointsEarned').textContent = `+${earned}`;
             document.getElementById('pointsTotal').textContent = total;
+            updateCreditDisplay();
 
             launchConfetti();
         } else {

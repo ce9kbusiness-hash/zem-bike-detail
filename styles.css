@@ -232,6 +232,30 @@ ul { list-style: none; }
     gap: 12px;
 }
 
+.detail-credit {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.credit-label {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+}
+
+.credit-value {
+    color: var(--primary);
+}
+
 .lang-toggle {
     display: flex;
     align-items: center;
@@ -1892,6 +1916,16 @@ ul { list-style: none; }
         width: 36px;
         height: 36px;
         font-size: 0.65rem;
+    }
+
+    .detail-credit {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+        gap: 4px;
+    }
+
+    .credit-label {
+        font-size: 0.6rem;
     }
 
     /* Hero */
