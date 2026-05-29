@@ -3,6 +3,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    touch-action: manipulation;
+}
+
+html {
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+@supports (-webkit-touch-callout: none) {
+    * {
+        touch-action: pan-y;
+    }
+
+    input, textarea, select, button {
+        touch-action: manipulation;
+    }
 }
 
 :root {
@@ -230,6 +258,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-left: 40px;
 }
 
 .detail-credit {
@@ -392,6 +421,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-left: 40px;
 }
 
 .lang-toggle {
@@ -2086,20 +2116,35 @@ ul { list-style: none; }
 
     .nav-cta { display: none; }
 
+    .nav-right {
+        gap: 8px;
+        margin-left: 0;
+    }
+
     .lang-toggle {
-        width: 36px;
-        height: 36px;
-        font-size: 0.65rem;
+        width: 34px;
+        height: 34px;
+        font-size: 0.6rem;
     }
 
     .detail-credit {
-        padding: 4px 10px;
+        padding: 4px 8px;
         font-size: 0.7rem;
-        gap: 4px;
+        gap: 3px;
     }
 
     .credit-label {
-        font-size: 0.6rem;
+        display: none;
+    }
+
+    .login-btn span,
+    .user-btn span {
+        display: none;
+    }
+
+    .login-btn,
+    .user-btn {
+        padding: 6px 10px;
     }
 
     /* Hero */
