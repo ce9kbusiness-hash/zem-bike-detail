@@ -277,6 +277,22 @@ const translations = {
         success_title: 'Booking Confirmed!',
         success_desc: 'We\'ll contact you shortly to confirm your appointment. Thank you for choosing ZEM Bike Detail!',
         credit_label: 'Detail Credit',
+        login: 'Login',
+        logout: 'Logout',
+        history: 'Booking History',
+        login_title: 'Login',
+        login_desc: 'Enter your phone number to receive a one-time code.',
+        phone_label: 'Phone Number',
+        send_otp: 'Send Code',
+        verify_title: 'Verify Code',
+        otp_message: 'Enter the 6-digit code sent to your phone.',
+        otp_label: 'Verification Code',
+        verify: 'Verify',
+        change_phone: 'Change phone number',
+        history_title: 'Booking History',
+        total_credit: 'Total Credit:',
+        no_bookings: 'No bookings yet.',
+        close: 'Close',
         points_earned: 'Points Earned',
         points_total: 'Total Points',
         points_note: 'Earn 1 point for every RM1 spent. Redeem for discounts on your next visit!',
@@ -413,6 +429,22 @@ const translations = {
         success_title: 'Tempahan Disahkan!',
         success_desc: 'Kami akan menghubungi anda sebentar lagi untuk mengesahkan temujanji anda. Terima kasih kerana memilih ZEM Bike Detail!',
         credit_label: 'Kredit Detail',
+        login: 'Log Masuk',
+        logout: 'Log Keluar',
+        history: 'Sejarah Tempahan',
+        login_title: 'Log Masuk',
+        login_desc: 'Masukkan nombor telefon anda untuk menerima kod sekali pakai.',
+        phone_label: 'Nombor Telefon',
+        send_otp: 'Hantar Kod',
+        verify_title: 'Sahkan Kod',
+        otp_message: 'Masukkan 6-digit kod yang dihantar ke telefon anda.',
+        otp_label: 'Kod Pengesahan',
+        verify: 'Sahkan',
+        change_phone: 'Tukar nombor telefon',
+        history_title: 'Sejarah Tempahan',
+        total_credit: 'Jumlah Kredit:',
+        no_bookings: 'Belum ada tempahan.',
+        close: 'Tutup',
         points_earned: 'Mata Diperoleh',
         points_total: 'Jumlah Mata',
         points_note: 'Peroleh 1 mata untuk setiap RM1 dibelanjakan. Tebus untuk diskaun pada lawatan seterusnya!',
@@ -482,10 +514,51 @@ if (savedLang && translations[savedLang]) {
 }
 
 // ===== Detail Credit =====
+let currentUser = null;
+let authToken = localStorage.getItem('zem-token') || null;
+
 function updateCreditDisplay() {
-    const points = parseInt(localStorage.getItem('zemPoints') || '0');
-    document.getElementById('creditValue').textContent = points;
+    if (currentUser) {
+        document.getElementById('creditValue').textContent = currentUser.points || 0;
+    } else {
+        const points = parseInt(localStorage.getItem('zemPoints') || '0');
+        document.getElementById('creditValue').textContent = points;
+    }
 }
+
+async function loadUserData() {
+    if (!authToken) return;
+    try {
+        const res = await fetch('/api/auth/me', {
+            headers: { 'Authorization': `Bearer ${authToken}` }
+        });
+        if (res.ok) {
+            const data = await res.json();
+            currentUser = data.user;
+            showLoggedIn();
+            updateCreditDisplay();
+        } else {
+            localStorage.removeItem('zem-token');
+            authToken = null;
+        }
+    } catch (e) {
+        // Offline or error, ignore
+    }
+}
+
+function showLoggedIn() {
+    document.getElementById('loginBtn').style.display = 'none';
+    document.getElementById('userMenu').style.display = 'block';
+    document.getElementById('userPhone').textContent = currentUser.phone;
+}
+
+function showLoggedOut() {
+    document.getElementById('loginBtn').style.display = 'flex';
+    document.getElementById('userMenu').style.display = 'none';
+    currentUser = null;
+}
+
+loadUserData();
 updateCreditDisplay();
 
 // ===== Custom Calendar =====
@@ -571,7 +644,16 @@ let currentStep = 1;
 let selectedService = '';
 let selectedPrice = 0;
 
+let pendingBooking = null;
+
 function openBookingModal(service, price) {
+    // If not logged in, show login first
+    if (!currentUser) {
+        pendingBooking = { service, price };
+        openLoginModal();
+        return;
+    }
+
     const modal = document.getElementById('bookingModal');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -707,23 +789,35 @@ async function submitBooking() {
     };
 
     try {
+        const headers = { 'Content-Type': 'application/json' };
+        if (authToken) headers['Authorization'] = `Bearer ${authToken}`;
+
         const res = await fetch('/api/bookings', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers,
             body: JSON.stringify(booking)
         });
 
         if (res.ok) {
+            const result = await res.json();
             document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
             document.getElementById('stepSuccess').classList.add('active');
 
-            // Points reward system
-            const earned = selectedPrice;
-            let total = parseInt(localStorage.getItem('zemPoints') || '0');
-            total += earned;
-            localStorage.setItem('zemPoints', total.toString());
-            document.getElementById('pointsEarned').textContent = `+${earned}`;
-            document.getElementById('pointsTotal').textContent = total;
+            const earned = result.pointsAwarded || selectedPrice;
+
+            if (currentUser && result.pointsAwarded) {
+                // Logged in — points awarded server-side
+                currentUser.points = (currentUser.points || 0) + result.pointsAwarded;
+                document.getElementById('pointsEarned').textContent = `+${earned}`;
+                document.getElementById('pointsTotal').textContent = currentUser.points;
+            } else {
+                // Not logged in — use localStorage
+                let total = parseInt(localStorage.getItem('zemPoints') || '0');
+                total += earned;
+                localStorage.setItem('zemPoints', total.toString());
+                document.getElementById('pointsEarned').textContent = `+${earned}`;
+                document.getElementById('pointsTotal').textContent = total;
+            }
             updateCreditDisplay();
 
             launchConfetti();
@@ -788,6 +882,169 @@ document.querySelectorAll('input[name="terms"]').forEach(radio => {
             termsError.classList.add('visible');
         }
     });
+});
+
+// ===== Login Modal =====
+let loginPhone = '';
+
+function openLoginModal() {
+    document.getElementById('loginModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loginStep1').classList.add('active');
+    document.getElementById('loginStep2').classList.remove('active');
+    document.getElementById('loginStep3').classList.remove('active');
+
+    // Show booking context if there's a pending booking
+    const desc = document.querySelector('#loginStep1 .login-desc');
+    if (pendingBooking) {
+        desc.textContent = currentLang === 'ms'
+            ? 'Sila log masuk untuk meneruskan tempahan anda.'
+            : 'Please log in to continue with your booking.';
+    } else {
+        desc.setAttribute('data-i18n', 'login_desc');
+        desc.textContent = translations[currentLang].login_desc;
+    }
+}
+
+function closeLoginModal() {
+    document.getElementById('loginModal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('loginPhone').value = '';
+    document.getElementById('otpInput').value = '';
+    pendingBooking = null;
+}
+
+async function requestOtp() {
+    const phone = document.getElementById('loginPhone').value.trim();
+    if (!phone) return;
+
+    try {
+        const res = await fetch('/api/auth/request-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone })
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            loginPhone = phone;
+            document.getElementById('loginStep1').classList.remove('active');
+            document.getElementById('loginStep2').classList.add('active');
+            // Dev mode: show OTP in alert
+            if (data.otp) {
+                alert(`Your verification code: ${data.otp}`);
+            }
+        } else {
+            alert('Failed to send code. Please try again.');
+        }
+    } catch (e) {
+        alert('Network error. Please try again.');
+    }
+}
+
+async function verifyOtp() {
+    const otp = document.getElementById('otpInput').value.trim();
+    if (!otp || otp.length !== 6) return;
+
+    try {
+        const res = await fetch('/api/auth/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone: loginPhone, otp })
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            authToken = data.token;
+            currentUser = data.user;
+            localStorage.setItem('zem-token', authToken);
+            showLoggedIn();
+            updateCreditDisplay();
+            closeLoginModal();
+
+            // If there was a pending booking, open it now
+            if (pendingBooking) {
+                const { service, price } = pendingBooking;
+                pendingBooking = null;
+                setTimeout(() => openBookingModal(service, price), 300);
+            }
+        } else {
+            const data = await res.json();
+            alert(data.error || 'Invalid code. Please try again.');
+        }
+    } catch (e) {
+        alert('Network error. Please try again.');
+    }
+}
+
+function backToPhone() {
+    document.getElementById('loginStep2').classList.remove('active');
+    document.getElementById('loginStep1').classList.add('active');
+    document.getElementById('otpInput').value = '';
+}
+
+async function logout() {
+    try {
+        await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${authToken}` }
+        });
+    } catch (e) { /* ignore */ }
+
+    localStorage.removeItem('zem-token');
+    authToken = null;
+    currentUser = null;
+    showLoggedOut();
+    updateCreditDisplay();
+    document.getElementById('userDropdown').classList.remove('open');
+}
+
+async function showHistory() {
+    document.getElementById('loginModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loginStep1').classList.remove('active');
+    document.getElementById('loginStep2').classList.remove('active');
+    document.getElementById('loginStep3').classList.add('active');
+    document.getElementById('userDropdown').classList.remove('open');
+
+    try {
+        const res = await fetch('/api/user/history', {
+            headers: { 'Authorization': `Bearer ${authToken}` }
+        });
+
+        if (res.ok) {
+            const data = await res.json();
+            document.getElementById('historyPoints').textContent = data.points || 0;
+
+            const list = document.getElementById('historyList');
+            if (data.bookings.length === 0) {
+                list.innerHTML = `<p class="history-empty" data-i18n="no_bookings">No bookings yet.</p>`;
+            } else {
+                list.innerHTML = data.bookings.map(b => `
+                    <div class="history-item">
+                        <div class="history-service">${b.service}</div>
+                        <div class="history-details">
+                            <span>${b.date}</span>
+                            <span>${b.time}</span>
+                            <span>${b.bike}</span>
+                        </div>
+                    </div>
+                `).reverse().join('');
+            }
+        }
+    } catch (e) { /* ignore */ }
+}
+
+// User dropdown toggle
+document.getElementById('userBtn')?.addEventListener('click', () => {
+    document.getElementById('userDropdown').classList.toggle('open');
+});
+
+// Close dropdown on outside click
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.user-menu')) {
+        document.getElementById('userDropdown')?.classList.remove('open');
+    }
 });
 
 // ===== Smooth Scroll =====
