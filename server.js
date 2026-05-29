@@ -204,7 +204,16 @@ app.post('/api/bookings', optionalAuth, (req, res) => {
     let pointsAwarded = 0;
     if (req.user) {
         booking.userId = req.user.id;
-        pointsAwarded = booking.price || 0;
+
+        // Validate price against known services
+        const SERVICE_PRICES = {
+            'Basic Wash': 29,
+            'Premium Wash': 59,
+            'King Wash': 79,
+            'Premium Polish': 179,
+            'Coating': 279
+        };
+        pointsAwarded = SERVICE_PRICES[booking.service] || 0;
 
         let users = readJSON(USERS_FILE);
         const userIndex = users.findIndex(u => u.id === req.user.id);
