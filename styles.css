@@ -2145,7 +2145,6 @@ ul { list-style: none; }
 
     .hamburger {
         display: flex;
-        margin-left: 4px;
     }
 
     .nav-links {
