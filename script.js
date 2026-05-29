@@ -664,6 +664,7 @@ async function submitBooking() {
         if (res.ok) {
             document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
             document.getElementById('stepSuccess').classList.add('active');
+            launchConfetti();
         } else {
             alert(t.alert_error);
         }
@@ -674,6 +675,41 @@ async function submitBooking() {
 
 // Close modal on overlay click
 // Modal only closes via X button (closeBookingModal)
+
+// ===== Confetti Animation =====
+function launchConfetti() {
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    document.body.appendChild(container);
+
+    const colors = ['#000000', '#333333', '#555555', '#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6', '#ec4899'];
+    const shapes = ['square', 'circle'];
+    const count = 80;
+
+    for (let i = 0; i < count; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        const size = Math.random() * 8 + 6;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 0.8;
+        const duration = Math.random() * 1.5 + 2;
+
+        piece.style.cssText = `
+            left: ${left}%;
+            width: ${size}px;
+            height: ${size}px;
+            background: ${color};
+            border-radius: ${shape === 'circle' ? '50%' : '2px'};
+            animation-delay: ${delay}s;
+            animation-duration: ${duration}s;
+        `;
+        container.appendChild(piece);
+    }
+
+    setTimeout(() => container.remove(), 4000);
+}
 
 // ===== Smooth Scroll =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
