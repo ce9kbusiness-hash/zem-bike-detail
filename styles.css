@@ -12,6 +12,27 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+@supports (-webkit-touch-callout: none) {
+    * {
+        touch-action: pan-y;
+    }
+
+    input, textarea, select, button {
+        touch-action: manipulation;
+    }
+}
+
 :root {
     --primary: #000000;
     --primary-dark: #000000;
