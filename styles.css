@@ -1383,12 +1383,6 @@ ul { list-style: none; }
     border-color: var(--primary);
 }
 
-.step-dot.done::after {
-    content: '✓';
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
 .step-line {
     flex: 1;
     height: 2px;

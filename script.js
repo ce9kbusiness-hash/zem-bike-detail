@@ -696,15 +696,8 @@ function goToStep(step) {
     document.querySelectorAll('.step-dot').forEach(dot => {
         const dotStep = parseInt(dot.dataset.step);
         dot.classList.remove('active', 'done');
-        if (dotStep === step) {
-            dot.classList.add('active');
-            dot.textContent = dotStep;
-        } else if (dotStep < step) {
-            dot.classList.add('done');
-            dot.textContent = '';
-        } else {
-            dot.textContent = dotStep;
-        }
+        if (dotStep === step) dot.classList.add('active');
+        else if (dotStep < step) dot.classList.add('done');
     });
 }
 
