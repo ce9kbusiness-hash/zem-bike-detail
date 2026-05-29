@@ -1385,7 +1385,7 @@ ul { list-style: none; }
 
 .step-dot.done::after {
     content: '✓';
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
 }
 
