@@ -2128,23 +2128,19 @@ ul { list-style: none; }
     }
 
     .detail-credit {
-        padding: 4px 8px;
-        font-size: 0.7rem;
-        gap: 3px;
-    }
-
-    .credit-label {
-        display: none;
-    }
-
-    .login-btn span,
-    .user-btn span {
-        display: none;
+        display: none !important;
     }
 
     .login-btn,
     .user-btn {
-        padding: 6px 10px;
+        padding: 6px 12px;
+        font-size: 0.72rem;
+    }
+
+    .user-btn span {
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     /* Hero */
