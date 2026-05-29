@@ -2134,7 +2134,24 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
     /* Nav */
-    .hamburger { display: flex; }
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .nav-right {
+        order: 2;
+        margin-left: auto;
+        gap: 6px;
+    }
+
+    .hamburger {
+        display: flex;
+        order: 3;
+    }
 
     .nav-links {
         display: none;
@@ -2149,6 +2166,8 @@ ul { list-style: none; }
         list-style: none;
         margin: 0;
         gap: 0;
+        order: 4;
+        width: 100%;
     }
 
     .nav-links.open { display: flex; }
@@ -2168,11 +2187,6 @@ ul { list-style: none; }
     .nav-link:last-child { border-bottom: none; }
 
     .nav-cta { display: none; }
-
-    .nav-right {
-        gap: 8px;
-        margin-left: 0;
-    }
 
     .lang-toggle {
         width: 34px;
