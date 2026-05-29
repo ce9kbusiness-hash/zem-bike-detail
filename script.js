@@ -660,6 +660,11 @@ function openBookingModal(service, price) {
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
 
+    // Auto-fill phone from logged-in user
+    if (currentUser) {
+        document.getElementById('custPhone').value = currentUser.phone;
+    }
+
     if (service) {
         selectedService = service;
         selectedPrice = price;
