@@ -2186,18 +2186,24 @@ ul { list-style: none; }
         width: 32px;
         height: 32px;
         font-size: 0.55rem;
-        margin-left: 4px;
+        margin-left: 8px;
     }
 
     .detail-credit {
-        display: none !important;
+        padding: 4px 10px;
+        font-size: 0.65rem;
+        gap: 4px;
+    }
+
+    .credit-label {
+        display: none;
     }
 
     .login-btn,
     .user-btn {
         padding: 6px 10px;
         font-size: 0.7rem;
-        margin-right: 2px;
+        margin-left: 6px;
     }
 
     .user-btn span {
