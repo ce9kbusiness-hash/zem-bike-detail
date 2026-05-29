@@ -225,7 +225,6 @@ const translations = {
         time_label: 'Time Slot',
         name_label: 'Full Name *',
         phone_label: 'Phone Number *',
-        email_label: 'Email',
         bike_label: 'Bike Model *',
         bike_placeholder: '-- Select your bike --',
         notes_label: 'Notes (optional)',
@@ -352,7 +351,6 @@ const translations = {
         time_label: 'Slot Masa',
         name_label: 'Nama Penuh *',
         phone_label: 'Nombor Telefon *',
-        email_label: 'E-mel',
         bike_label: 'Model Motosikal *',
         bike_placeholder: '-- Pilih motosikal anda --',
         notes_label: 'Nota (pilihan)',
@@ -406,19 +404,16 @@ function setLanguage(lang) {
     // Update placeholders
     const nameInput = document.getElementById('custName');
     const phoneInput = document.getElementById('custPhone');
-    const emailInput = document.getElementById('custEmail');
     const notesInput = document.getElementById('custNotes');
     const bikeInput = document.getElementById('bikeSearchInput');
     if (lang === 'ms') {
         nameInput.placeholder = 'Ahmad bin Ali';
         phoneInput.placeholder = '+60 12-345 6789';
-        emailInput.placeholder = 'ahmad@email.com';
         notesInput.placeholder = 'Sebarang permintaan khas...';
         bikeInput.placeholder = 'Cari model motosikal...';
     } else {
         nameInput.placeholder = 'Ahmad bin Ali';
         phoneInput.placeholder = '+60 12-345 6789';
-        emailInput.placeholder = 'ahmad@email.com';
         notesInput.placeholder = 'Any special requests...';
         bikeInput.placeholder = 'Search bike model...';
     }
@@ -547,7 +542,7 @@ function closeBookingModal() {
     goToStep(1);
     // Reset form
     document.querySelectorAll('.modal input[type="radio"]').forEach(r => r.checked = false);
-    document.querySelectorAll('.modal input[type="text"], .modal input[type="tel"], .modal input[type="email"], .modal textarea').forEach(i => i.value = '');
+    document.querySelectorAll('.modal input[type="text"], .modal input[type="tel"], .modal textarea').forEach(i => i.value = '');
     document.getElementById('custBike').value = '';
     document.getElementById('bikeSearchInput').value = '';
     document.getElementById('bookingDate').value = '';
@@ -648,7 +643,6 @@ async function submitBooking() {
         time: document.querySelector('input[name="time"]:checked')?.value,
         name: document.getElementById('custName').value.trim(),
         phone: document.getElementById('custPhone').value.trim(),
-        email: document.getElementById('custEmail').value.trim(),
         bike: document.getElementById('custBike').value,
         notes: document.getElementById('custNotes').value.trim(),
         createdAt: new Date().toISOString()
