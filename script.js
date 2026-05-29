@@ -1,32 +1,3 @@
-// ===== Disable Mobile Zoom =====
-document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('gesturechange', e => e.preventDefault());
-document.addEventListener('gestureend', e => e.preventDefault());
-document.addEventListener('dblclick', e => e.preventDefault(), { passive: false });
-
-let lastTouchEnd = 0;
-document.addEventListener('touchend', e => {
-    const now = Date.now();
-    if (now - lastTouchEnd <= 300) e.preventDefault();
-    lastTouchEnd = now;
-}, { passive: false });
-
-let initialDistance = 0;
-document.addEventListener('touchstart', e => {
-    if (e.touches.length === 2) {
-        initialDistance = Math.hypot(
-            e.touches[0].clientX - e.touches[1].clientX,
-            e.touches[0].clientY - e.touches[1].clientY
-        );
-    }
-}, { passive: true });
-
-document.addEventListener('touchmove', e => {
-    if (e.touches.length === 2) {
-        e.preventDefault();
-    }
-}, { passive: false });
-
 // ===== Navbar Scroll =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
