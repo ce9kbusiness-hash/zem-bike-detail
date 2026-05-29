@@ -549,12 +549,14 @@ async function loadUserData() {
 function showLoggedIn() {
     document.getElementById('loginBtn').style.display = 'none';
     document.getElementById('userMenu').style.display = 'block';
+    document.getElementById('detailCredit').style.display = 'flex';
     document.getElementById('userPhone').textContent = currentUser.phone;
 }
 
 function showLoggedOut() {
     document.getElementById('loginBtn').style.display = 'flex';
     document.getElementById('userMenu').style.display = 'none';
+    document.getElementById('detailCredit').style.display = 'none';
     currentUser = null;
 }
 

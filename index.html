@@ -24,7 +24,7 @@
                 <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
             <div class="nav-right">
-                <div class="detail-credit" id="detailCredit">
+                <div class="detail-credit" id="detailCredit" style="display: none;">
                     <span class="credit-label" data-i18n="credit_label">Detail Credit</span>
                     <span class="credit-value" id="creditValue">0</span>
                 </div>
@@ -42,8 +42,14 @@
                         <span id="userPhone">012-345 6789</span>
                     </button>
                     <div class="user-dropdown" id="userDropdown">
-                        <a href="#" onclick="showHistory(); return false;" data-i18n="history">Booking History</a>
-                        <a href="#" onclick="logout(); return false;" data-i18n="logout">Logout</a>
+                        <a href="#" onclick="showHistory(); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span data-i18n="history">Booking History</span>
+                        </a>
+                        <a href="#" onclick="logout(); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                            <span data-i18n="logout">Logout</span>
+                        </a>
                     </div>
                 </div>
                 <button class="lang-toggle" id="langToggle" aria-label="Switch language">
