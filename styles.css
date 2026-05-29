@@ -2139,12 +2139,13 @@ ul { list-style: none; }
     }
 
     .nav-right {
-        gap: 4px;
-        margin-left: 0;
+        gap: 0;
+        margin-left: auto;
     }
 
     .hamburger {
         display: flex;
+        margin-left: 2px;
     }
 
     .nav-links {
@@ -2182,9 +2183,10 @@ ul { list-style: none; }
     .nav-cta { display: none; }
 
     .lang-toggle {
-        width: 34px;
-        height: 34px;
-        font-size: 0.6rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.55rem;
+        margin-left: 4px;
     }
 
     .detail-credit {
@@ -2193,12 +2195,13 @@ ul { list-style: none; }
 
     .login-btn,
     .user-btn {
-        padding: 6px 12px;
-        font-size: 0.72rem;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        margin-right: 2px;
     }
 
     .user-btn span {
-        max-width: 70px;
+        max-width: 65px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
